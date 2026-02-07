@@ -1,2 +1,3 @@
-# pkm-public-school-semli-mobile-application
-Exported from Caffeine project: PKM Public School, Semli Mobile Application
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

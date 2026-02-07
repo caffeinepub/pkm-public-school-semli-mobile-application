@@ -1,0 +1,68 @@
+{
+  "kind": "build_request",
+  "title": "Replace app logo with the user-provided emblem",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "text": "Create a new square, cleanly-cropped school logo image from the user-uploaded photos (IMG_20260208_024007233.jpg and IMG_20260208_024007233-1.jpg) and add it as a static asset under frontend/public/assets/generated.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Change the logo to this in the app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new logo file exists at frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png.",
+        "The logo has a square aspect ratio, is tightly cropped around the circular emblem, and has good contrast/sharpness suitable for UI display.",
+        "The logo renders correctly when loaded directly via the browser at /assets/generated/pkm-school-logo-2026.dim_512x512.png (no 404)."
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Update the centralized branding configuration to use the new logo asset path, and ensure all logo render locations (at minimum: sticky header branding and Home screen hero) display the new logo via the branding constant.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Change the logo to this in the app"
+        ]
+      },
+      "acceptanceCriteria": [
+        "frontend/src/constants/branding.ts sets BRANDING.logoPath to /assets/generated/pkm-school-logo-2026.dim_512x512.png.",
+        "The Header logo (frontend/src/components/Header.tsx) and Home screen hero logo (frontend/src/pages/HomeScreen.tsx) both display the updated logo without layout breakage or distortion.",
+        "No other parts of the UI reference the old logo path /assets/generated/pkm-school-logo-v2.dim_512x512.png for the school logo."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (compose them only).",
+    "Do not modify immutable frontend hook/provider entry files (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "Serve the logo as a static frontend asset under frontend/public/assets/generated; do not route image bytes through the backend canister."
+  ],
+  "nonGoals": [
+    "Do not change the app theme, layout, navigation, or content beyond the logo swap.",
+    "Do not implement any new backend functionality for logo management."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Square-cropped school emblem logo based on the uploaded image (pkm-school-logo-2026.dim_512x512.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

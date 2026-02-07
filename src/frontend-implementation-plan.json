@@ -1,0 +1,49 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Swap school logo asset and update branding references",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "summary": "Add a new square-cropped school emblem logo as a generated static asset.",
+      "acceptanceCriteria": [
+        "A new logo file exists at frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png.",
+        "The logo has a square aspect ratio, is tightly cropped around the circular emblem, and has good contrast/sharpness suitable for UI display.",
+        "The logo renders correctly when loaded directly via the browser at /assets/generated/pkm-school-logo-2026.dim_512x512.png (no 404)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png",
+          "operation": "create",
+          "description": "Create the finalized 512x512 PNG logo from IMG_20260208_024007233.jpg and IMG_20260208_024007233-1.jpg: tightly crop around the circular emblem, ensure square aspect ratio, and adjust for sharpness/contrast suitable for UI."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Update centralized branding to point to the new logo asset and ensure header + home hero render it via BRANDING.logoPath.",
+      "acceptanceCriteria": [
+        "frontend/src/constants/branding.ts sets BRANDING.logoPath to /assets/generated/pkm-school-logo-2026.dim_512x512.png.",
+        "The Header logo (frontend/src/components/Header.tsx) and Home screen hero logo (frontend/src/pages/HomeScreen.tsx) both display the updated logo without layout breakage or distortion.",
+        "No other parts of the UI reference the old logo path /assets/generated/pkm-school-logo-v2.dim_512x512.png for the school logo."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/constants/branding.ts",
+          "operation": "modify",
+          "description": "Update BRANDING.logoPath to '/assets/generated/pkm-school-logo-2026.dim_512x512.png' so all logo usages switch via the centralized branding constant."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Confirm the sticky header uses BRANDING.logoPath for the logo render and adjust only if needed to avoid distortion (keep square rendering with object-contain)."
+        },
+        {
+          "path": "frontend/src/pages/HomeScreen.tsx",
+          "operation": "modify",
+          "description": "Confirm the Home screen hero logo uses BRANDING.logoPath and adjust only if needed to avoid layout breakage or distortion (preserve object-contain and existing sizing)."
+        }
+      ]
+    }
+  ]
+}

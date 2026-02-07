@@ -1,0 +1,51 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T23:44:00.485Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-15",
+        "summary": "Create a new square, cleanly-cropped school logo image from the user-uploaded photos (IMG_20260208_024007233.jpg and IMG_20260208_024007233-1.jpg) and add it as a static asset under frontend/public/assets/generated.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Update the centralized branding configuration to use the new logo asset path, and ensure all logo render locations (at minimum: sticky header branding and Home screen hero) display the new logo via the branding constant.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/constants/branding.ts",
+          "frontend/src/components/Header.tsx",
+          "frontend/src/pages/HomeScreen.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/constants/branding.ts"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png",
+    "frontend/src/constants/branding.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-new-square-cleanly-cropped-school-logo-image-from-the-user-uploaded-photos-img-20260208-024007233-jpg-and-img-20260208-024007233-1-jpg-and-add-it-as-a-static-asset-under-frontend-public-assets-generated",
+      "featureTitle": "Create a new square, cleanly-cropped school logo image from the user-uploaded photos (IMG_20260208_024007233.jpg and IMG_20260208_024007233-1.jpg) and add it as a static asset under frontend/public/assets/generated.",
+      "files": [],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-centralized-branding-configuration-to-use-the-new-logo-asset-path-and-ensure-all-logo-render-locations-at-minimum-sticky-header-branding-and-home-screen-hero-display-the-new-logo-via-the-branding-constant",
+      "featureTitle": "Update the centralized branding configuration to use the new logo asset path, and ensure all logo render locations (at minimum: sticky header branding and Home screen hero) display the new logo via the branding constant.",
+      "files": [
+        "frontend/src/constants/branding.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
