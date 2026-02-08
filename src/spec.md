@@ -1,11 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the app’s PWA/browser icons and the two in-app logo locations (Header + Home hero) with cleanly cropped versions of the newly provided school emblem.
+**Goal:** Add a dedicated in-app Images/Gallery section that displays the 8 uploaded photos as static assets, with navigation access and a larger-image preview.
 
 **Planned changes:**
-- Generate new square PNG branding assets from the provided logo photos, cropping to the circular emblem with safe padding and no phone/background borders, and add them under `frontend/public/assets/generated`.
-- Update `frontend/index.html` and `frontend/public/manifest.webmanifest` to reference the new 192x192 and 512x512 app icon assets instead of the current `pkm-app-icon-2026-v4` files.
-- Update `frontend/src/constants/branding.ts` (`BRANDING.logoPath`) so the Header logo image and Home hero logo image render the new logo asset.
+- Add the 8 specified JPG files to the frontend’s static/public assets and reference them by their exact filenames in the UI.
+- Create a clearly labeled Images/Gallery section that renders the 8 images in a responsive grid with consistent spacing, rounded corners, and stable aspect-ratio handling to avoid layout shifts.
+- Add navigation entry to reach the Images/Gallery section using the app’s existing navigation pattern, without removing or breaking current sections (Home/Education/Discipline/Sports/Notices/Dashboard).
+- Implement click/tap-to-preview behavior so each image can be viewed larger in an overlay/dialog with a clear close action to return to the grid.
 
-**User-visible outcome:** The browser favicon/installed PWA icon and the app’s Header + Home hero logo display the updated school emblem from the user-provided images.
+**User-visible outcome:** Users can open an Images/Gallery section from the app navigation, browse all 8 photos in a responsive grid, and tap any photo to view it larger and close the preview to return to the gallery.

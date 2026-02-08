@@ -1,33 +1,32 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Update app branding by replacing the current app icon with the user-provided logo image.",
+  "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Cleanly cropped square school logo on transparent or clean white background (pkm-school-logo-2026-v3.dim_512x512.png)\n- Maskable-style square app icon with centered emblem and safe padding (pkm-app-icon-2026-v5.dim_512x512.png)\n- Small square app icon with centered emblem and safe padding (pkm-app-icon-2026-v5.dim_192x192.png)",
   "existing_features": [
     {
-      "id": "feature-create-new-square-cleanly-cropped-branding-images-from-the-user-uploaded-logo-photos-img-20260208-024007233-8-jpg-img-20260208-024007233-9-jpg-img-20260208-024007233-10-jpg-img-20260208-024007233-11-jpg-and-add-them-as-static-assets-under-frontend-public-assets-generated-the-crop-should-center-the-circular-school-emblem-remove-surrounding-phone-background-borders-and-ensure-the-emblem-is-fully-visible-with-a-small-safe-padding-for-maskable-icon-use",
-      "title": "Create new square, cleanly-cropped branding images from the user-uploaded logo photos (IMG_20260208_024007233-8.jpg, IMG_20260208_024007233-9.jpg, IMG_20260208_024007233-10.jpg, IMG_20260208_024007233-11.jpg) and add them as static assets under frontend/public/assets/generated. The crop should center the circular school emblem, remove surrounding phone/background borders, and ensure the emblem is fully visible with a small safe padding for maskable icon use.",
+      "id": "feature-create-a-dedicated-images-gallery-section-in-the-app-ui-that-displays-the-8-uploaded-images-in-a-responsive-grid-layout-with-consistent-spacing-rounded-corners-and-proper-aspect-ratio-handling-no-layout-shifts-while-loading",
+      "title": "Create a dedicated \"Images\" (gallery) section in the app UI that displays the 8 uploaded images in a responsive grid layout with consistent spacing, rounded corners, and proper aspect-ratio handling (no layout shifts while loading).",
       "reqIds": [
-        "REQ-21"
+        "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-the-pwa-browser-icon-metadata-to-use-the-newly-generated-app-icon-assets-by-updating-references-in-frontend-index-html-and-frontend-public-manifest-webmanifest-replace-current-references-to-assets-generated-pkm-app-icon-2026-v4-dim-192x192-png-and-assets-generated-pkm-app-icon-2026-v4-dim-512x512-png",
-      "title": "Update the PWA/browser icon metadata to use the newly generated app icon assets by updating references in frontend/index.html and frontend/public/manifest.webmanifest (replace current references to /assets/generated/pkm-app-icon-2026-v4.dim_192x192.png and /assets/generated/pkm-app-icon-2026-v4.dim_512x512.png).",
+      "id": "feature-add-navigation-so-users-can-reach-the-new-images-gallery-section-from-the-existing-app-structure-without-removing-any-current-sections-using-a-consistent-navigation-pattern-already-present-in-the-app",
+      "title": "Add navigation so users can reach the new Images/Gallery section from the existing app structure (without removing any current sections), using a consistent navigation pattern already present in the app.",
       "reqIds": [
-        "REQ-22"
+        "REQ-3"
       ],
       "version": 1
     },
     {
-      "id": "feature-replace-the-two-selected-in-app-logo-image-elements-with-the-newly-provided-logo-by-updating-the-centralized-branding-logopath-frontend-src-constants-branding-ts-so-that-the-header-logo-image-html-body-div-div-header-div-div-img-1-and-the-home-hero-logo-image-html-body-div-div-main-div-div-div-2-div-img-1-render-the-updated-logo-asset-via-branding-logopath",
-      "title": "Replace the two selected in-app logo image elements with the newly provided logo by updating the centralized branding logoPath (frontend/src/constants/branding.ts) so that the Header logo image (/html/body/div/div/header/div/div/img[1]) and the Home hero logo image (/html/body/div/div/main/div/div/div[2]/div/img[1]) render the updated logo asset via BRANDING.logoPath.",
+      "id": "feature-enable-viewing-an-image-at-larger-size-from-the-gallery-e-g-by-tapping-clicking-an-image-to-open-a-preview-overlay-dialog-with-a-clear-way-to-close-and-return-to-the-grid",
+      "title": "Enable viewing an image at larger size from the gallery (e.g., by tapping/clicking an image to open a preview overlay/dialog) with a clear way to close and return to the grid.",
       "reqIds": [
-        "REQ-23"
+        "REQ-4"
       ],
       "version": 1
     }
@@ -35,12 +34,20 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Replace the current app icon with the user-provided logo image",
+      "summary": "Add an images section to the app and include the provided images",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add the 8 user-uploaded images as static frontend assets and reference them by filename in the UI: IMG_20260208_024943140-1.jpg, IMG_20260208_024948850.jpg, IMG_20260208_024928950.jpg, IMG_20260208_024935455.jpg, IMG_20260208_024928950-1.jpg, IMG_20260208_024948850-1.jpg, IMG_20260208_024943140-2.jpg, IMG_20260208_024935455-1.jpg.",
+      "reqIds": [
+        "REQ-1"
+      ],
       "status": "pending"
     }
   ],
-  "projectName": "Replace app icon and in-app logo with newly provided image",
+  "projectName": "Add an in-app image gallery section using the 8 uploaded photos",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

@@ -1,9 +1,9 @@
 {
   "frontend/src/index.css": "Global styles with school-themed OKLCH color system (deep navy primary, warm gold secondary, fresh green accent) for both light and dark modes, plus mobile-safe-area utilities.",
   "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Inter font family, custom shadows (soft, card), and fade-in animation for polished UI transitions.",
-  "frontend/src/App.tsx": "Main app component managing section navigation state and rendering the appropriate screen (Home, Education, Discipline, Sports, Notices, Dashboard) with shared Header, BottomNav, ProfileSetupDialog, and Toaster.",
+  "frontend/src/App.tsx": "Main app component managing section navigation state (including new 'images' section) and rendering the appropriate screen with shared Header, BottomNav, ProfileSetupDialog, and Toaster.",
   "frontend/src/components/Header.tsx": "Sticky header displaying school logo (now using the new v2 logo via branding constants), name, and login/logout button with Internet Identity integration and query cache clearing on logout.",
-  "frontend/src/components/BottomNav.tsx": "Fixed bottom navigation bar with 6 sections (Home, Education, Discipline, Sports, Notices, Dashboard) showing active state and touch-optimized buttons.",
+  "frontend/src/components/BottomNav.tsx": "Fixed bottom navigation bar with 7 sections (Home, Education, Discipline, Sports, Notices, Gallery, Dashboard) showing active state and touch-optimized buttons in a responsive grid layout.",
   "frontend/src/components/ProfileSetupDialog.tsx": "Modal dialog prompting first-time authenticated users to enter their name and save their profile, preventing dismissal until completed.",
   "frontend/src/components/QueryState.tsx": "Reusable UI components for loading skeletons, empty states, and error states used consistently across all data-driven screens.",
   "frontend/src/pages/HomeScreen.tsx": "Home screen featuring school logo (now using the new v2 logo via branding constants), hero banner with values message, quick access cards to main sections, and core values display.",
@@ -40,5 +40,8 @@
   "frontend/src/hooks/queries/dashboard.ts": "React Query hooks for dashboard data (student profile, exam results, notifications) conditional on authentication and studentId availability.",
   "frontend/src/constants/branding.ts": "Centralized branding constants module exporting school name, location, and the updated v3 logo asset path for consistent usage across the app.",
   "frontend/index.html": "HTML entry point with favicon links, PWA manifest reference, and Apple touch icon metadata pointing to the new v5 PKM emblem app icon assets.",
-  "frontend/public/manifest.webmanifest": "PWA web manifest defining app metadata, theme colors, and icon references for installable progressive web app functionality with the new v5 PKM emblem icon."
+  "frontend/public/manifest.webmanifest": "PWA web manifest defining app metadata, theme colors, and icon references for installable progressive web app functionality with the new v5 PKM emblem icon.",
+  "frontend/src/pages/images/galleryImages.ts": "Data source defining the 8 gallery image entries with exact filenames, IDs, source paths, and descriptive alt text for accessibility.",
+  "frontend/src/pages/images/ImagePreviewDialog.tsx": "Reusable modal dialog component using shadcn Dialog to display selected gallery images in a larger overlay with a close button and dark background.",
+  "frontend/src/pages/images/ImagesScreen.tsx": "Gallery screen displaying 8 school event photos in a responsive grid (1-4 columns based on screen size) with hover effects, click-to-preview functionality, and integrated preview dialog."
 }

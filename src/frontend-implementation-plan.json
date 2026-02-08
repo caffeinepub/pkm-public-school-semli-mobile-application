@@ -1,68 +1,117 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace PWA app icons and in-app logo with newly generated school emblem assets",
+  "title": "In-app Images gallery with static assets and preview",
   "requirements": [
     {
-      "id": "REQ-21",
-      "summary": "Add newly generated, cleanly cropped square branding images as static assets under frontend/public/assets/generated.",
+      "id": "REQ-1",
+      "summary": "Add the 8 provided photos as static public assets and reference them by exact filename in the UI.",
       "acceptanceCriteria": [
-        "New PNG assets exist under frontend/public/assets/generated with the filenames specified in imageRequirements.required.",
-        "The generated icon versions are square, centered, and not visibly skewed; no black phone border/background is included.",
-        "The 192x192 and 512x512 icon variants include enough padding to look good as a maskable icon (no important details clipped by rounded masks)."
+        "All 8 images are present in the frontend public/static assets and load correctly in production builds (no broken image links).",
+        "The UI references the exact provided filenames (including suffixes like -1, -2)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/pkm-school-logo-2026-v3.dim_512x512.png",
+          "path": "frontend/public/assets/gallery/IMG_20260208_024943140-1.jpg",
           "operation": "create",
-          "description": "Create a cleanly cropped, square school logo image derived from the provided user photos, centered on the circular emblem with a small safe padding; background should be transparent or clean white."
+          "description": "Add the provided photo as a static public asset to be served by the frontend build."
         },
         {
-          "path": "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png",
+          "path": "frontend/public/assets/gallery/IMG_20260208_024948850.jpg",
           "operation": "create",
-          "description": "Create a maskable-style square app icon derived from the provided user photos with centered emblem and safe padding suitable for rounded/maskable rendering; remove any phone/background borders."
+          "description": "Add the provided photo as a static public asset to be served by the frontend build."
         },
         {
-          "path": "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png",
+          "path": "frontend/public/assets/gallery/IMG_20260208_024928950.jpg",
           "operation": "create",
-          "description": "Create a small square app icon derived from the provided user photos with centered emblem and safe padding; remove any phone/background borders."
+          "description": "Add the provided photo as a static public asset to be served by the frontend build."
+        },
+        {
+          "path": "frontend/public/assets/gallery/IMG_20260208_024935455.jpg",
+          "operation": "create",
+          "description": "Add the provided photo as a static public asset to be served by the frontend build."
+        },
+        {
+          "path": "frontend/public/assets/gallery/IMG_20260208_024928950-1.jpg",
+          "operation": "create",
+          "description": "Add the provided photo as a static public asset to be served by the frontend build."
+        },
+        {
+          "path": "frontend/public/assets/gallery/IMG_20260208_024948850-1.jpg",
+          "operation": "create",
+          "description": "Add the provided photo as a static public asset to be served by the frontend build."
+        },
+        {
+          "path": "frontend/public/assets/gallery/IMG_20260208_024943140-2.jpg",
+          "operation": "create",
+          "description": "Add the provided photo as a static public asset to be served by the frontend build."
+        },
+        {
+          "path": "frontend/public/assets/gallery/IMG_20260208_024935455-1.jpg",
+          "operation": "create",
+          "description": "Add the provided photo as a static public asset to be served by the frontend build."
         }
       ]
     },
     {
-      "id": "REQ-22",
-      "summary": "Update favicon and PWA manifest icon references to point to the newly generated app icon assets.",
+      "id": "REQ-2",
+      "summary": "Create an Images/Gallery section that shows the 8 photos in a responsive grid with consistent spacing, rounded corners, and stable aspect ratio.",
       "acceptanceCriteria": [
-        "frontend/index.html <link rel='icon'>, shortcut icon, and apple-touch-icon point to the new icon asset filenames.",
-        "frontend/public/manifest.webmanifest icons[].src entries point to the new icon asset filenames and keep appropriate sizes/type/purpose.",
-        "After build, browser tab favicon and installed PWA icon use the new icon images (not the old v4 assets)."
+        "There is a clearly labeled Images/Gallery section visible in the app.",
+        "The gallery shows all 8 images.",
+        "On mobile, the grid adapts to smaller screens (e.g., 1–2 columns) and on larger screens uses more columns appropriately."
       ],
       "file_operations": [
         {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Replace current favicon/shortcut/apple-touch-icon references from the v4 generated assets to the new generated icon files: frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png and frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png."
+          "path": "frontend/src/pages/images/ImagesScreen.tsx",
+          "operation": "create",
+          "description": "Create an Images screen that renders a responsive grid of the 8 static assets with fixed aspect-ratio placeholders to avoid layout shifts, consistent gaps, and rounded corners; compose existing shadcn-ui components (e.g., Card) for layout. Verify the component's usage instructions before implementing."
         },
         {
-          "path": "frontend/public/manifest.webmanifest",
-          "operation": "modify",
-          "description": "Update manifest icons[].src values to point to the new generated icon files: frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png and frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png, preserving sizes/type and the any maskable purpose."
+          "path": "frontend/src/pages/images/galleryImages.ts",
+          "operation": "create",
+          "description": "Define a single source of truth array for the 8 gallery image entries (label + public src path) using the exact provided filenames for UI references."
         }
       ]
     },
     {
-      "id": "REQ-23",
-      "summary": "Replace the in-app Header and Home hero logo images via the shared BRANDING.logoPath configuration only.",
+      "id": "REQ-3",
+      "summary": "Add navigation entry so users can reach the Images/Gallery section without removing any existing sections.",
       "acceptanceCriteria": [
-        "BRANDING.logoPath is updated to the new logo asset filename.",
-        "The Header logo and the Home hero logo display the new logo without layout breakage (maintain object-contain behavior).",
-        "No other non-selected images/icons are changed as part of this request."
+        "Users can navigate to the Images/Gallery section via an in-app control (e.g., a tab within an existing section or a new entry point) without breaking the current Home/Education/Discipline/Sports/Notices/Dashboard navigation.",
+        "No existing navigation item is removed."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/constants/branding.ts",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update BRANDING.logoPath to reference the new generated logo asset file frontend/public/assets/generated/pkm-school-logo-2026-v3.dim_512x512.png so the Header and Home hero logo <img> elements automatically render the new logo via BRANDING.logoPath."
+          "description": "Wire the new Images section into the existing section-switch navigation by extending the AppSection type and adding a render case that displays the new Images screen."
+        },
+        {
+          "path": "frontend/src/components/BottomNav.tsx",
+          "operation": "modify",
+          "description": "Add an Images navigation item to the existing bottom navigation pattern (keeping all existing items) and adjust layout to accommodate the additional item."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Enable tap/click-to-preview for each gallery image in a larger overlay/dialog with a clear close action.",
+      "acceptanceCriteria": [
+        "Clicking/tapping an image opens a larger preview.",
+        "The preview can be closed to return to the gallery grid.",
+        "The preview works for each of the 8 images."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/images/ImagePreviewDialog.tsx",
+          "operation": "create",
+          "description": "Add a reusable preview overlay component for showing the selected image larger and providing a clear close control; use shadcn-ui Dialog to provide accessible modal behavior. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/images/ImagesScreen.tsx",
+          "operation": "modify",
+          "description": "Integrate the preview dialog into the gallery grid by tracking the selected image and opening/closing the dialog on user interaction; ensure every one of the 8 images can be previewed."
         }
       ]
     }

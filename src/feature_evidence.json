@@ -2,9 +2,12 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-new-square-cleanly-cropped-branding-images-from-the-user-uploaded-logo-photos-img-20260208-024007233-8-jpg-img-20260208-024007233-9-jpg-img-20260208-024007233-10-jpg-img-20260208-024007233-11-jpg-and-add-them-as-static-assets-under-frontend-public-assets-generated-the-crop-should-center-the-circular-school-emblem-remove-surrounding-phone-background-borders-and-ensure-the-emblem-is-fully-visible-with-a-small-safe-padding-for-maskable-icon-use",
-      "featureTitle": "Create new square, cleanly-cropped branding images from the user-uploaded logo photos (IMG_20260208_024007233-8.jpg, IMG_20260208_024007233-9.jpg, IMG_20260208_024007233-10.jpg, IMG_20260208_024007233-11.jpg) and add them as static assets under frontend/public/assets/generated. The crop should center the circular school emblem, remove surrounding phone/background borders, and ensure the emblem is fully visible with a small safe padding for maskable icon use.",
-      "files": [],
+      "featureId": "feature-create-a-dedicated-images-gallery-section-in-the-app-ui-that-displays-the-8-uploaded-images-in-a-responsive-grid-layout-with-consistent-spacing-rounded-corners-and-proper-aspect-ratio-handling-no-layout-shifts-while-loading",
+      "featureTitle": "Create a dedicated \"Images\" (gallery) section in the app UI that displays the 8 uploaded images in a responsive grid layout with consistent spacing, rounded corners, and proper aspect-ratio handling (no layout shifts while loading).",
+      "files": [
+        "frontend/src/pages/images/ImagesScreen.tsx",
+        "frontend/src/pages/images/galleryImages.ts"
+      ],
       "components": [
         "authorization@4.0.0",
         "core-infrastructure@1.0.2",
@@ -14,16 +17,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-21"
+        "REQ-2"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-pwa-browser-icon-metadata-to-use-the-newly-generated-app-icon-assets-by-updating-references-in-frontend-index-html-and-frontend-public-manifest-webmanifest-replace-current-references-to-assets-generated-pkm-app-icon-2026-v4-dim-192x192-png-and-assets-generated-pkm-app-icon-2026-v4-dim-512x512-png",
-      "featureTitle": "Update the PWA/browser icon metadata to use the newly generated app icon assets by updating references in frontend/index.html and frontend/public/manifest.webmanifest (replace current references to /assets/generated/pkm-app-icon-2026-v4.dim_192x192.png and /assets/generated/pkm-app-icon-2026-v4.dim_512x512.png).",
+      "featureId": "feature-add-navigation-so-users-can-reach-the-new-images-gallery-section-from-the-existing-app-structure-without-removing-any-current-sections-using-a-consistent-navigation-pattern-already-present-in-the-app",
+      "featureTitle": "Add navigation so users can reach the new Images/Gallery section from the existing app structure (without removing any current sections), using a consistent navigation pattern already present in the app.",
       "files": [
-        "frontend/index.html",
-        "frontend/public/manifest.webmanifest"
+        "frontend/src/App.tsx",
+        "frontend/src/components/BottomNav.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -34,15 +37,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-22"
+        "REQ-3"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-replace-the-two-selected-in-app-logo-image-elements-with-the-newly-provided-logo-by-updating-the-centralized-branding-logopath-frontend-src-constants-branding-ts-so-that-the-header-logo-image-html-body-div-div-header-div-div-img-1-and-the-home-hero-logo-image-html-body-div-div-main-div-div-div-2-div-img-1-render-the-updated-logo-asset-via-branding-logopath",
-      "featureTitle": "Replace the two selected in-app logo image elements with the newly provided logo by updating the centralized branding logoPath (frontend/src/constants/branding.ts) so that the Header logo image (/html/body/div/div/header/div/div/img[1]) and the Home hero logo image (/html/body/div/div/main/div/div/div[2]/div/img[1]) render the updated logo asset via BRANDING.logoPath.",
+      "featureId": "feature-enable-viewing-an-image-at-larger-size-from-the-gallery-e-g-by-tapping-clicking-an-image-to-open-a-preview-overlay-dialog-with-a-clear-way-to-close-and-return-to-the-grid",
+      "featureTitle": "Enable viewing an image at larger size from the gallery (e.g., by tapping/clicking an image to open a preview overlay/dialog) with a clear way to close and return to the grid.",
       "files": [
-        "frontend/src/constants/branding.ts"
+        "frontend/src/pages/images/ImagePreviewDialog.tsx",
+        "frontend/src/pages/images/ImagesScreen.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -53,7 +57,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-23"
+        "REQ-4"
       ],
       "confidence": "high"
     }

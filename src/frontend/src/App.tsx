@@ -7,11 +7,12 @@ import DisciplineScreen from './pages/discipline/DisciplineScreen';
 import SportsScreen from './pages/sports/SportsScreen';
 import NoticesScreen from './pages/notices/NoticesScreen';
 import DashboardScreen from './pages/dashboard/DashboardScreen';
+import ImagesScreen from './pages/images/ImagesScreen';
 import BottomNav from './components/BottomNav';
 import Header from './components/Header';
 import ProfileSetupDialog from './components/ProfileSetupDialog';
 
-export type AppSection = 'home' | 'education' | 'discipline' | 'sports' | 'notices' | 'dashboard';
+export type AppSection = 'home' | 'education' | 'discipline' | 'sports' | 'notices' | 'dashboard' | 'images';
 
 export default function App() {
     const [currentSection, setCurrentSection] = useState<AppSection>('home');
@@ -30,6 +31,8 @@ export default function App() {
                 return <NoticesScreen />;
             case 'dashboard':
                 return <DashboardScreen />;
+            case 'images':
+                return <ImagesScreen />;
             default:
                 return <HomeScreen onNavigate={setCurrentSection} />;
         }
