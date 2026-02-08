@@ -1,34 +1,49 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-07T23:44:00.485Z",
+  "generatedAt": "2026-02-08T00:20:44.591Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-15",
-        "summary": "Create a new square, cleanly-cropped school logo image from the user-uploaded photos (IMG_20260208_024007233.jpg and IMG_20260208_024007233-1.jpg) and add it as a static asset under frontend/public/assets/generated.",
+        "id": "REQ-21",
+        "summary": "Create new square, cleanly-cropped branding images from the user-uploaded logo photos (IMG_20260208_024007233-8.jpg, IMG_20260208_024007233-9.jpg, IMG_20260208_024007233-10.jpg, IMG_20260208_024007233-11.jpg) and add them as static assets under frontend/public/assets/generated. The crop should center the circular school emblem, remove surrounding phone/background borders, and ensure the emblem is fully visible with a small safe padding for maskable icon use.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png"
+          "frontend/public/assets/generated/pkm-school-logo-2026-v3.dim_512x512.png",
+          "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png",
+          "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png"
+          "frontend/public/assets/generated/pkm-school-logo-2026-v3.dim_512x512.png",
+          "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png",
+          "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png"
         ]
       },
       {
-        "id": "REQ-16",
-        "summary": "Update the centralized branding configuration to use the new logo asset path, and ensure all logo render locations (at minimum: sticky header branding and Home screen hero) display the new logo via the branding constant.",
+        "id": "REQ-22",
+        "summary": "Update the PWA/browser icon metadata to use the newly generated app icon assets by updating references in frontend/index.html and frontend/public/manifest.webmanifest (replace current references to /assets/generated/pkm-app-icon-2026-v4.dim_192x192.png and /assets/generated/pkm-app-icon-2026-v4.dim_512x512.png).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/constants/branding.ts",
-          "frontend/src/components/Header.tsx",
-          "frontend/src/pages/HomeScreen.tsx"
+          "frontend/index.html",
+          "frontend/public/manifest.webmanifest"
+        ],
+        "matchedFiles": [
+          "frontend/index.html",
+          "frontend/public/manifest.webmanifest"
+        ]
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Replace the two selected in-app logo image elements with the newly provided logo by updating the centralized branding logoPath (frontend/src/constants/branding.ts) so that the Header logo image (/html/body/div/div/header/div/div/img[1]) and the Home hero logo image (/html/body/div/div/main/div/div/div[2]/div/img[1]) render the updated logo asset via BRANDING.logoPath.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/constants/branding.ts"
         ],
         "matchedFiles": [
           "frontend/src/constants/branding.ts"
@@ -41,7 +56,11 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png",
+    "frontend/index.html",
+    "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png",
+    "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png",
+    "frontend/public/assets/generated/pkm-school-logo-2026-v3.dim_512x512.png",
+    "frontend/public/manifest.webmanifest",
     "frontend/src/constants/branding.ts",
     "project_state.json",
     "scratch/component-selection.json",

@@ -38,5 +38,7 @@
   "frontend/src/hooks/queries/education.ts": "React Query hooks for education data (study materials, assignments, exams, exam results, announcements) using the backend actor.",
   "frontend/src/hooks/queries/discipline.ts": "React Query hook for fetching student attendance records using the backend actor.",
   "frontend/src/hooks/queries/dashboard.ts": "React Query hooks for dashboard data (student profile, exam results, notifications) conditional on authentication and studentId availability.",
-  "frontend/src/constants/branding.ts": "Centralized branding constants module exporting school name, location, and the updated 2026 logo asset path for consistent usage across the app."
+  "frontend/src/constants/branding.ts": "Centralized branding constants module exporting school name, location, and the updated v3 logo asset path for consistent usage across the app.",
+  "frontend/index.html": "HTML entry point with favicon links, PWA manifest reference, and Apple touch icon metadata pointing to the new v5 PKM emblem app icon assets.",
+  "frontend/public/manifest.webmanifest": "PWA web manifest defining app metadata, theme colors, and icon references for installable progressive web app functionality with the new v5 PKM emblem icon."
 }

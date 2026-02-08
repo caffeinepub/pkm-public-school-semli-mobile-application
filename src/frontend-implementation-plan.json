@@ -1,47 +1,68 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Swap school logo asset and update branding references",
+  "title": "Replace PWA app icons and in-app logo with newly generated school emblem assets",
   "requirements": [
     {
-      "id": "REQ-15",
-      "summary": "Add a new square-cropped school emblem logo as a generated static asset.",
+      "id": "REQ-21",
+      "summary": "Add newly generated, cleanly cropped square branding images as static assets under frontend/public/assets/generated.",
       "acceptanceCriteria": [
-        "A new logo file exists at frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png.",
-        "The logo has a square aspect ratio, is tightly cropped around the circular emblem, and has good contrast/sharpness suitable for UI display.",
-        "The logo renders correctly when loaded directly via the browser at /assets/generated/pkm-school-logo-2026.dim_512x512.png (no 404)."
+        "New PNG assets exist under frontend/public/assets/generated with the filenames specified in imageRequirements.required.",
+        "The generated icon versions are square, centered, and not visibly skewed; no black phone border/background is included.",
+        "The 192x192 and 512x512 icon variants include enough padding to look good as a maskable icon (no important details clipped by rounded masks)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png",
+          "path": "frontend/public/assets/generated/pkm-school-logo-2026-v3.dim_512x512.png",
           "operation": "create",
-          "description": "Create the finalized 512x512 PNG logo from IMG_20260208_024007233.jpg and IMG_20260208_024007233-1.jpg: tightly crop around the circular emblem, ensure square aspect ratio, and adjust for sharpness/contrast suitable for UI."
+          "description": "Create a cleanly cropped, square school logo image derived from the provided user photos, centered on the circular emblem with a small safe padding; background should be transparent or clean white."
+        },
+        {
+          "path": "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png",
+          "operation": "create",
+          "description": "Create a maskable-style square app icon derived from the provided user photos with centered emblem and safe padding suitable for rounded/maskable rendering; remove any phone/background borders."
+        },
+        {
+          "path": "frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png",
+          "operation": "create",
+          "description": "Create a small square app icon derived from the provided user photos with centered emblem and safe padding; remove any phone/background borders."
         }
       ]
     },
     {
-      "id": "REQ-16",
-      "summary": "Update centralized branding to point to the new logo asset and ensure header + home hero render it via BRANDING.logoPath.",
+      "id": "REQ-22",
+      "summary": "Update favicon and PWA manifest icon references to point to the newly generated app icon assets.",
       "acceptanceCriteria": [
-        "frontend/src/constants/branding.ts sets BRANDING.logoPath to /assets/generated/pkm-school-logo-2026.dim_512x512.png.",
-        "The Header logo (frontend/src/components/Header.tsx) and Home screen hero logo (frontend/src/pages/HomeScreen.tsx) both display the updated logo without layout breakage or distortion.",
-        "No other parts of the UI reference the old logo path /assets/generated/pkm-school-logo-v2.dim_512x512.png for the school logo."
+        "frontend/index.html <link rel='icon'>, shortcut icon, and apple-touch-icon point to the new icon asset filenames.",
+        "frontend/public/manifest.webmanifest icons[].src entries point to the new icon asset filenames and keep appropriate sizes/type/purpose.",
+        "After build, browser tab favicon and installed PWA icon use the new icon images (not the old v4 assets)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Replace current favicon/shortcut/apple-touch-icon references from the v4 generated assets to the new generated icon files: frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png and frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png."
+        },
+        {
+          "path": "frontend/public/manifest.webmanifest",
+          "operation": "modify",
+          "description": "Update manifest icons[].src values to point to the new generated icon files: frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_192x192.png and frontend/public/assets/generated/pkm-app-icon-2026-v5.dim_512x512.png, preserving sizes/type and the any maskable purpose."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Replace the in-app Header and Home hero logo images via the shared BRANDING.logoPath configuration only.",
+      "acceptanceCriteria": [
+        "BRANDING.logoPath is updated to the new logo asset filename.",
+        "The Header logo and the Home hero logo display the new logo without layout breakage (maintain object-contain behavior).",
+        "No other non-selected images/icons are changed as part of this request."
       ],
       "file_operations": [
         {
           "path": "frontend/src/constants/branding.ts",
           "operation": "modify",
-          "description": "Update BRANDING.logoPath to '/assets/generated/pkm-school-logo-2026.dim_512x512.png' so all logo usages switch via the centralized branding constant."
-        },
-        {
-          "path": "frontend/src/components/Header.tsx",
-          "operation": "modify",
-          "description": "Confirm the sticky header uses BRANDING.logoPath for the logo render and adjust only if needed to avoid distortion (keep square rendering with object-contain)."
-        },
-        {
-          "path": "frontend/src/pages/HomeScreen.tsx",
-          "operation": "modify",
-          "description": "Confirm the Home screen hero logo uses BRANDING.logoPath and adjust only if needed to avoid layout breakage or distortion (preserve object-contain and existing sizing)."
+          "description": "Update BRANDING.logoPath to reference the new generated logo asset file frontend/public/assets/generated/pkm-school-logo-2026-v3.dim_512x512.png so the Header and Home hero logo <img> elements automatically render the new logo via BRANDING.logoPath."
         }
       ]
     }

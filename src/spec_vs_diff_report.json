@@ -1,47 +1,41 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-07T23:44:00.482Z",
-  "summary": "Branding constant was updated to point to the new 2026 logo path, but the actual static logo asset was not added in this diff, and the diff does not provide evidence that all logo render locations were updated or that all references to the old logo were removed.",
+  "generatedAt": "2026-02-08T00:20:44.588Z",
+  "summary": "REQ-22 and REQ-23 appear implemented via updated icon references in index.html/manifest and updated BRANDING.logoPath. REQ-21 (adding newly generated PNG assets under frontend/public/assets/generated) is not evidenced in the diff summary. Two unrelated project-tracking/summary files were modified without being requested.",
   "missing_requirements": [
     {
-      "id": "REQ-15",
-      "requirement": "Add the new square-cropped logo file at frontend/public/assets/generated/pkm-school-logo-2026.dim_512x512.png.",
-      "reason": "The diff shows no added files, and there is no evidence that the new image asset was created/committed under frontend/public/assets/generated.",
+      "id": "REQ-21",
+      "requirement": "Create new square, cleanly-cropped branding PNG assets from the user-uploaded logo photos and add them under frontend/public/assets/generated with the specified filenames (pkm-school-logo-2026-v3.dim_512x512.png, pkm-app-icon-2026-v5.dim_512x512.png, pkm-app-icon-2026-v5.dim_192x192.png).",
+      "reason": "The diff summary shows no new files added (ADDED FILES: none) and no modifications under frontend/public/assets/generated that would indicate the required PNG assets were created/committed.",
       "evidence": [
-        "<file-diff>: Added: 0, Modified: 3, Removed: 0",
-        "frontend/src/constants/branding.ts (only path change shown)"
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "requirement": "Ensure Header (frontend/src/components/Header.tsx) and Home hero (frontend/src/pages/HomeScreen.tsx) display the new logo via the branding constant and that no other UI parts reference the old /assets/generated/pkm-school-logo-v2.dim_512x512.png path.",
-      "reason": "Only frontend/src/constants/branding.ts is shown modified; there is no diff evidence of changes in Header.tsx or HomeScreen.tsx, nor evidence of removing old path references across the codebase.",
-      "evidence": [
-        "frontend/src/constants/branding.ts",
-        "<file-diff>: Modified files list does not include frontend/src/components/Header.tsx or frontend/src/pages/HomeScreen.tsx"
+        "File diff summary: \"Added: 0\" / \"ADDED FILES: - none\"",
+        "frontend/public/manifest.webmanifest (references new assets but does not add them)",
+        "frontend/index.html (references new assets but does not add them)"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Updated project metadata/state files (project_state.json) unrelated to the requested logo swap implementation.",
-      "reason": "BuildRequest only asked for adding a static logo asset and updating branding/logo usage; changing project_state.json is not mentioned.",
+      "description": "Project tracking/state update in project_state.json (new_feature_requests entries, summary, etc.).",
+      "reason": "The BuildRequest does not ask to modify project_state.json; it focuses on branding assets and updating icon/logo references.",
       "evidence": [
         "project_state.json"
       ]
     },
     {
-      "description": "Updated/generated frontend file summary documentation (frontend-file-summaries.txt) not requested.",
-      "reason": "BuildRequest does not request documentation or summary file updates.",
+      "description": "Update to repository file summary listing (frontend-file-summaries.txt).",
+      "reason": "The BuildRequest does not request updating documentation/summaries; only asset and reference changes were requested.",
       "evidence": [
         "frontend-file-summaries.txt"
       ]
     }
   ],
-  "confidence": 0.72,
+  "confidence": 0.78,
   "changed_files": [
     "frontend-file-summaries.txt",
+    "frontend/index.html",
+    "frontend/public/manifest.webmanifest",
     "frontend/src/constants/branding.ts",
     "project_state.json"
   ]

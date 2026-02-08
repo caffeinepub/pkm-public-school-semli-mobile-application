@@ -2,5 +2,5 @@
 export const BRANDING = {
   schoolName: 'PKM Public School',
   location: 'Semli',
-  logoPath: '/assets/generated/pkm-school-logo-2026.dim_512x512.png',
+  logoPath: '/assets/generated/pkm-school-logo-2026-v3.dim_512x512.png',
 } as const;

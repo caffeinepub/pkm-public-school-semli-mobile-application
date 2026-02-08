@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the app’s school logo with a new emblem sourced from the user-provided photos.
+**Goal:** Replace the app’s PWA/browser icons and the two in-app logo locations (Header + Home hero) with cleanly cropped versions of the newly provided school emblem.
 
 **Planned changes:**
-- Create a new square, tightly-cropped logo PNG (512×512) from the uploaded emblem photos and add it under `frontend/public/assets/generated/`.
-- Update the centralized branding constant to point to the new logo asset path.
-- Ensure the Header branding logo and Home screen hero logo render the new logo via the branding constant, with no layout distortion and no remaining references to the old logo path.
+- Generate new square PNG branding assets from the provided logo photos, cropping to the circular emblem with safe padding and no phone/background borders, and add them under `frontend/public/assets/generated`.
+- Update `frontend/index.html` and `frontend/public/manifest.webmanifest` to reference the new 192x192 and 512x512 app icon assets instead of the current `pkm-app-icon-2026-v4` files.
+- Update `frontend/src/constants/branding.ts` (`BRANDING.logoPath`) so the Header logo image and Home hero logo image render the new logo asset.
 
-**User-visible outcome:** The app displays the updated school emblem logo consistently in the sticky header and on the Home screen hero.
+**User-visible outcome:** The browser favicon/installed PWA icon and the app’s Header + Home hero logo display the updated school emblem from the user-provided images.

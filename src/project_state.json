@@ -1,125 +1,33 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
-  "summary": "Mobile school application for PKM Public School, Semli focused on Education, Discipline, and Sports, serving students, parents, and teachers with a clean, professional, mobile-friendly UI and secure dashboards.",
-  "architectural_notes": [
-    "Support multiple user roles (student/parent/teacher) behind secure authentication and role-appropriate dashboards."
-  ],
-  "known_issues": [
-    "Deployment/domain configuration failing due to invalid domain name format (contains commas or invalid characters); domain must be 5–50 chars and only letters, numbers, and hyphens."
-  ],
+  "projectStateVersion": 3,
+  "summary": "Update app branding by replacing the current app icon with the user-provided logo image.",
+  "architectural_notes": [],
+  "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Square-cropped school emblem logo based on the uploaded image (pkm-school-logo-2026.dim_512x512.png)",
+  "imageRequirements": "## Required Images\n- Cleanly cropped square school logo on transparent or clean white background (pkm-school-logo-2026-v3.dim_512x512.png)\n- Maskable-style square app icon with centered emblem and safe padding (pkm-app-icon-2026-v5.dim_512x512.png)\n- Small square app icon with centered emblem and safe padding (pkm-app-icon-2026-v5.dim_192x192.png)",
   "existing_features": [
     {
-      "id": "feature-create-a-cohesive-modern-mobile-first-visual-theme-for-pkm-public-school-semli-that-feels-clean-professional-and-inspiring-for-students-parents-and-teachers-and-reflects-the-values-education-discipline-and-sports-use-consistent-colors-typography-spacing-and-component-styling-across-all-screens-avoid-a-blue-purple-dominant-palette",
-      "title": "Create a cohesive, modern, mobile-first visual theme for PKM Public School, Semli that feels clean, professional, and inspiring for students, parents, and teachers, and reflects the values Education, Discipline, and Sports. Use consistent colors, typography, spacing, and component styling across all screens (avoid a blue/purple-dominant palette).",
+      "id": "feature-create-new-square-cleanly-cropped-branding-images-from-the-user-uploaded-logo-photos-img-20260208-024007233-8-jpg-img-20260208-024007233-9-jpg-img-20260208-024007233-10-jpg-img-20260208-024007233-11-jpg-and-add-them-as-static-assets-under-frontend-public-assets-generated-the-crop-should-center-the-circular-school-emblem-remove-surrounding-phone-background-borders-and-ensure-the-emblem-is-fully-visible-with-a-small-safe-padding-for-maskable-icon-use",
+      "title": "Create new square, cleanly-cropped branding images from the user-uploaded logo photos (IMG_20260208_024007233-8.jpg, IMG_20260208_024007233-9.jpg, IMG_20260208_024007233-10.jpg, IMG_20260208_024007233-11.jpg) and add them as static assets under frontend/public/assets/generated. The crop should center the circular school emblem, remove surrounding phone/background borders, and ensure the emblem is fully visible with a small safe padding for maskable icon use.",
       "reqIds": [
-        "REQ-1"
+        "REQ-21"
       ],
       "version": 1
     },
     {
-      "id": "feature-implement-the-home-screen-with-1-pkm-public-school-logo-and-name-2-a-welcome-message-highlighting-education-discipline-sports-and-3-quick-access-buttons-for-academics-education-discipline-sports-and-notices",
-      "title": "Implement the Home screen with: (1) PKM Public School logo and name, (2) a welcome message highlighting Education, Discipline & Sports, and (3) quick access buttons for Academics (Education), Discipline, Sports, and Notices.",
+      "id": "feature-update-the-pwa-browser-icon-metadata-to-use-the-newly-generated-app-icon-assets-by-updating-references-in-frontend-index-html-and-frontend-public-manifest-webmanifest-replace-current-references-to-assets-generated-pkm-app-icon-2026-v4-dim-192x192-png-and-assets-generated-pkm-app-icon-2026-v4-dim-512x512-png",
+      "title": "Update the PWA/browser icon metadata to use the newly generated app icon assets by updating references in frontend/index.html and frontend/public/manifest.webmanifest (replace current references to /assets/generated/pkm-app-icon-2026-v4.dim_192x192.png and /assets/generated/pkm-app-icon-2026-v4.dim_512x512.png).",
       "reqIds": [
-        "REQ-2"
+        "REQ-22"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-app-wide-navigation-suitable-for-mobile-e-g-bottom-navigation-or-a-simple-menu-to-access-home-education-discipline-sports-notices-and-dashboard",
-      "title": "Add app-wide navigation suitable for mobile (e.g., bottom navigation or a simple menu) to access Home, Education, Discipline, Sports, Notices, and Dashboard.",
+      "id": "feature-replace-the-two-selected-in-app-logo-image-elements-with-the-newly-provided-logo-by-updating-the-centralized-branding-logopath-frontend-src-constants-branding-ts-so-that-the-header-logo-image-html-body-div-div-header-div-div-img-1-and-the-home-hero-logo-image-html-body-div-div-main-div-div-div-2-div-img-1-render-the-updated-logo-asset-via-branding-logopath",
+      "title": "Replace the two selected in-app logo image elements with the newly provided logo by updating the centralized branding logoPath (frontend/src/constants/branding.ts) so that the Header logo image (/html/body/div/div/header/div/div/img[1]) and the Home hero logo image (/html/body/div/div/main/div/div/div[2]/div/img[1]) render the updated logo asset via BRANDING.logoPath.",
       "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-build-the-education-section-ui-with-subpages-for-class-wise-study-materials-homework-assignments-exam-schedules-results-and-teacher-announcements-provide-list-detail-views-for-each-content-type-filtered-by-class-where-applicable",
-      "title": "Build the Education section UI with subpages for: class-wise study materials, homework & assignments, exam schedules & results, and teacher announcements. Provide list + detail views for each content type, filtered by class where applicable.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-build-the-discipline-section-ui-with-subpages-for-school-rules-code-of-conduct-attendance-tracking-student-behavior-updates-parent-facing-and-important-guidelines-policies",
-      "title": "Build the Discipline section UI with subpages for: school rules & code of conduct, attendance tracking, student behavior updates (parent-facing), and important guidelines/policies.",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-build-the-sports-section-ui-with-subpages-for-sports-activities-facilities-upcoming-tournaments-events-achievements-awards-gallery-and-fitness-training-schedules-include-an-image-gallery-view-for-achievements-awards",
-      "title": "Build the Sports section UI with subpages for: sports activities & facilities, upcoming tournaments & events, achievements & awards gallery, and fitness/training schedules. Include an image gallery view for achievements/awards.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-build-the-notices-announcements-section-with-subpages-for-school-circulars-holiday-list-and-event-updates-each-with-list-and-detail-views-and-basic-sorting-by-date-newest-first",
-      "title": "Build the Notices & Announcements section with subpages for school circulars, holiday list, and event updates, each with list and detail views and basic sorting by date (newest first).",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-secure-login-using-internet-identity-and-add-a-parent-student-dashboard-that-shows-student-profile-performance-overview-e-g-recent-exam-results-summary-and-a-notifications-alerts-feed",
-      "title": "Implement secure login using Internet Identity and add a Parent & Student Dashboard that shows: student profile, performance overview (e.g., recent exam results/summary), and a notifications/alerts feed.",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-wire-the-frontend-to-the-backend-using-react-query-for-all-section-data-lists-details-with-loading-states-empty-states-and-error-states-for-each-screen",
-      "title": "Wire the frontend to the backend using React Query for all section data (lists/details), with loading states, empty states, and error states for each screen.",
-      "reqIds": [
-        "REQ-11"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-the-required-generated-static-images-to-the-frontend-as-assets-and-render-them-in-the-ui-where-appropriate-logo-on-home-gallery-placeholders-in-achievements-awards-store-generated-images-under-frontend-public-assets-generated",
-      "title": "Add the required generated static images to the frontend as assets and render them in the UI where appropriate (logo on Home; gallery placeholders in Achievements/Awards). Store generated images under frontend/public/assets/generated.",
-      "reqIds": [
-        "REQ-12"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-replace-the-current-school-logo-asset-with-a-new-logo-and-ensure-it-is-served-as-a-static-asset-under-frontend-public-assets-generated",
-      "title": "Replace the current school logo asset with a new logo and ensure it is served as a static asset under frontend/public/assets/generated.",
-      "reqIds": [
-        "REQ-13"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-all-ui-locations-that-render-the-school-logo-to-use-the-updated-logo-asset-including-the-sticky-header-branding-and-the-home-screen-hero-logo",
-      "title": "Update all UI locations that render the school logo to use the updated logo asset (including the sticky header branding and the Home screen hero logo).",
-      "reqIds": [
-        "REQ-14"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-create-a-new-square-cleanly-cropped-school-logo-image-from-the-user-uploaded-photos-img-20260208-024007233-jpg-and-img-20260208-024007233-1-jpg-and-add-it-as-a-static-asset-under-frontend-public-assets-generated",
-      "title": "Create a new square, cleanly-cropped school logo image from the user-uploaded photos (IMG_20260208_024007233.jpg and IMG_20260208_024007233-1.jpg) and add it as a static asset under frontend/public/assets/generated.",
-      "reqIds": [
-        "REQ-15"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-centralized-branding-configuration-to-use-the-new-logo-asset-path-and-ensure-all-logo-render-locations-at-minimum-sticky-header-branding-and-home-screen-hero-display-the-new-logo-via-the-branding-constant",
-      "title": "Update the centralized branding configuration to use the new logo asset path, and ensure all logo render locations (at minimum: sticky header branding and Home screen hero) display the new logo via the branding constant.",
-      "reqIds": [
-        "REQ-16"
+        "REQ-23"
       ],
       "version": 1
     }
@@ -127,71 +35,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Home screen with school logo/name, welcome message (Education/Discipline/Sports), and quick access buttons (Academics, Discipline, Sports, Notices)",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Education section: class-wise study materials, homework/assignments, exam schedules/results, and teacher announcements",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Discipline section: rules/code of conduct, attendance tracking, student behavior updates for parents, and guidelines/policies",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Sports section: activities/facilities info, upcoming tournaments/events, achievements/awards gallery, and fitness/training schedules",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Notices & announcements: school circulars, holiday list, and event updates",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Parent & student dashboard with secure login, student profile/performance overview, and notifications/alerts",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "App-wide design system: school-themed colors, simple navigation, mobile-friendly layout, professional yet student-friendly UI",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-16",
-      "summary": "Implement backend data models and canister methods to store and retrieve all core content types: study materials (class-wise), homework/assignments, exam schedules, exam results, teacher announcements, rules/code of conduct, attendance records, behavior updates, guidelines/policies, sports activities/facilities info, sports events/tournaments, achievements/awards (including image URLs/paths), fitness/training schedules, circulars, holidays, and event updates.",
-      "reqIds": [
-        "REQ-9"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-17",
-      "summary": "Add role-aware access control in the backend for teacher/admin-managed content and student-specific data (attendance, behavior updates, performance). Use the authenticated principal (Internet Identity) to identify users and restrict student-specific views to authorized principals.",
-      "reqIds": [
-        "REQ-10"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-18",
-      "summary": "Update/replace the app logo asset (school emblem/crest) across the UI (e.g., Home screen header/app branding)",
+      "summary": "Replace the current app icon with the user-provided logo image",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "PKM Public School, Semli Mobile Application",
+  "projectName": "Replace app icon and in-app logo with newly provided image",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
